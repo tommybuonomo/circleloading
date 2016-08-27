@@ -1,0 +1,73 @@
+apply plugin: 'com.android.library'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+    }
+}
+
+group = 'com.tbuonomo.andrui'
+version = '1.0.0'
+
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+artifacts {
+    archives generateSourcesJar
+}
+
+bintray {
+    def Properties localProps = new Properties()
+    localProps.load(new FileInputStream(file('../local.properties')))
+
+    user = localProps.getProperty("bintrayUser")
+    key = localProps.getProperty("bintrayApiKey")
+    pkg {
+        repo = 'maven'
+        name = 'circle-loading'
+
+        version {
+            name = '1.0.0'
+            desc = 'A cool circle loading animation in Android'
+            vcsTag = '1.0.0'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/tommybuonomo/circleloading'
+        websiteUrl = 'https://github.com/tommybuonomo/circleloading'
+    }
+    configurations = ['archives']
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+}
