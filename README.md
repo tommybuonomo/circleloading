@@ -1,17 +1,17 @@
-#Circle Loading Animation
+# Circle Loading Animation
 
 A cool circle loading animation inspired by [this post](http://www.materialup.com/posts/material-design-circle-loading) on [MaterialUp](http://www.materialup.com/)
 
 ![ezgif com-video-to-gif 3](https://cloud.githubusercontent.com/assets/15737675/16541358/dc99a04a-4080-11e6-84a2-d506a2656e35.gif) ![ezgif com-video-to-gif 2](https://cloud.githubusercontent.com/assets/15737675/16541338/434dd686-4080-11e6-8c12-0d69bfb65888.gif) ![ezgif com-video-to-gif 4](https://cloud.githubusercontent.com/assets/15737675/16541470/3329629e-4084-11e6-90d2-735529606594.gif) ![ezgif com-video-to-gif 5](https://cloud.githubusercontent.com/assets/15737675/16541635/f74cc2f8-4087-11e6-9bdc-b6c245b3a0be.gif)
 
-##How to
-####Gradle
+## How to
+#### Gradle
 ```Gradle
 dependencies {
     compile 'com.tbuonomo.andrui:circleloading:1.0.0'
 }
 ```
-####In your XML layout
+#### In your XML layout
 ```Xml
 <com.tbuonomo.circleloading.CircleLoading
         android:layout_width="70dp"
@@ -24,7 +24,7 @@ dependencies {
         app:animationDuration="1500"/>
 ```
 
-####Attributes
+#### Attributes
 | Attribute | Description |
 | --- | --- |
 | innerColor | Color of the inner circle |
@@ -33,7 +33,7 @@ dependencies {
 | outerAlpha | Opacity of the outer circle beetween 0 and 255 (by default 120) |
 | animationDuration | Step duration of the animation in ms (by default 500) |
 
-##License
+## License
     Copyright 2016 Tommy Buonomo
     
     Licensed under the Apache License, Version 2.0 (the "License");
